@@ -97,10 +97,10 @@ void createLockFile(char * filename) {
 
 void writePIDToLockFile(char * filename) {
     char lockFileName[1024];
-    snprintf(lockFileName, sizeof(lockFileName), "%s%s", filename, LOCK_EXTENSION);
+    sprintf(lockFileName, "%s%s", filename, LOCK_EXTENSION);
 
     char buffer[8];
-    snprintf(buffer, sizeof(buffer), "%d\n", getpid());
+    sprintf(buffer, "%d\n", getpid());
 
     int fd = open(lockFileName, O_WRONLY | O_APPEND);
 
